@@ -1,46 +1,46 @@
 const mongoose = require("mongoose");
 
 const DataWargaSchema = new mongoose.Schema({
-  Nama: {
+  namaLengkap: {
     type: String,
     required: true,
   },
-  NIK: {
+  nik: {
     type: String,
     required: true,
     unique: true,
   },
-  Alamat: {
+  alamat: {
     type: String,
     required: true,
   },
-  TanggalLahir: {
+  tanggalLahir: {
     type: Date,
     required: true,
   },
-  JenisKelamin: {
+  jenisKelamin: {
     type: String,
     enum: ["Laki-laki", "Perempuan"],
     required: true,
   },
-  Agama: {
+  agama: {
     type: String,
     required: true,
   },
-  Pekerjaan: {
+  pekerjaan: {
     type: String,
     required: true,
   },
-  StatusKawin: {
+  statusKawin: {
     type: String,
     enum: ["Belum Kawin", "Kawin", "Cerai"],
     required: true,
   },
-  NoHP: {
+  noHP: {
     type: String,
     required: false,
   },
-  NoKK: {
+  noKK: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "KartuKeluarga", // Referensi ke model KartuKeluarga
     required: true,
