@@ -2,10 +2,8 @@ const mongoose = require("mongoose");
 
 const getKK = async (req, res) => {
   const kkModel = mongoose.model("KartuKeluarga");
-
   try {
     const { noKK } = req.query;
-
     let data;
     if (noKK) {
       data = await kkModel.findOne({ noKK: noKK });
@@ -18,7 +16,6 @@ const getKK = async (req, res) => {
     } else {
       data = await kkModel.find();
     }
-
     res.status(200).json({
       status: "success",
       data: data,
