@@ -5,7 +5,7 @@ const createWarga = async (req, res) => {
   const {
     nik,
     namaLengkap,
-    alamat,
+    rt,
     tanggalLahir,
     jenisKelamin,
     agama,
@@ -18,7 +18,7 @@ const createWarga = async (req, res) => {
     "nik",
     "statusKawin",
     "namaLengkap",
-    "alamat",
+    "rt",
     "tanggalLahir",
     "jenisKelamin",
     "agama",
@@ -32,7 +32,7 @@ const createWarga = async (req, res) => {
   await wargaModel.create({
     nik: nik,
     namaLengkap: namaLengkap,
-    alamat: alamat,
+    rt: rt,
     tanggalLahir: tanggalLahir,
     jenisKelamin: jenisKelamin,
     agama: agama,
