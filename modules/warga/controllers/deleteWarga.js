@@ -3,15 +3,15 @@ const mongoose = require("mongoose");
 const deleteWarga = async (req, res) => {
   const wargaModel = mongoose.model("DataWarga");
   try {
-    const { nik } = req.body;
+    const { _id } = req.body;
 
-    if (!nik) {
+    if (!_id) {
       return res.status(400).json({
         status: "error",
         message: "nik is required",
       });
     }
-    const deleteWarga = await wargaModel.deleteOne({ nik: nik });
+    const deleteWarga = await wargaModel.deleteOne({ _id: _id });
     if (deleteWarga.deletedCount === 0) {
       return res.status(404).json({
         status: "error",

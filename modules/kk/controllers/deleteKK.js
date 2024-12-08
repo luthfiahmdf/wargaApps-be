@@ -3,16 +3,16 @@ const mongoose = require("mongoose");
 const deleteKK = async (req, res) => {
   const kkModel = mongoose.model("KartuKeluarga");
   try {
-    const { noKK } = req.body;
+    const { _id } = req.body;
 
-    if (!noKK) {
+    if (!_id) {
       return res.status(400).json({
         status: "error",
         message: "noKK is required",
       });
     }
 
-    const deleteKK = await kkModel.deleteOne({ noKK: noKK });
+    const deleteKK = await kkModel.deleteOne({ _id: _id });
 
     if (deleteKK.deletedCount === 0) {
       return res.status(404).json({

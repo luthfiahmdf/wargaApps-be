@@ -3,10 +3,10 @@ const mongoose = require("mongoose");
 const updateKK = async (req, res) => {
   const kkModel = mongoose.model("KartuKeluarga");
   try {
-    const { noKK, kepalaKeluarga, alamat } = req.body;
+    const { noKK, kepalaKeluarga, rt, _id } = req.body;
     const updateKK = await kkModel.updateOne(
-      { noKK: noKK },
-      { $set: { kepalaKeluarga: kepalaKeluarga, alamat: alamat } }
+      { _id: _id },
+      { $set: { kepalaKeluarga: kepalaKeluarga, rt: rt, noKK: noKK } }
     );
     if (updateKK.modifiedCount === 0) {
       return res.status(404).json({

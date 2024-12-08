@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const KartuKeluargaSchema = new mongoose.Schema({
   noKK: {
-    type: String,
+    type: Number,
     required: true,
     unique: true,
   },
@@ -10,7 +10,7 @@ const KartuKeluargaSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  alamat: {
+  rt: {
     type: String,
     required: true,
   },

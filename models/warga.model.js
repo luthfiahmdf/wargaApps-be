@@ -6,12 +6,13 @@ const DataWargaSchema = new mongoose.Schema({
     required: true,
   },
   nik: {
-    type: String,
+    type: Number,
     required: true,
     unique: true,
   },
-  alamat: {
+  rt: {
     type: String,
+    enum: ["01", "02"],
     required: true,
   },
   tanggalLahir: {
@@ -35,10 +36,6 @@ const DataWargaSchema = new mongoose.Schema({
     type: String,
     enum: ["Belum Kawin", "Kawin", "Cerai"],
     required: true,
-  },
-  noHP: {
-    type: String,
-    required: false,
   },
   noKK: {
     type: mongoose.Schema.Types.ObjectId,
