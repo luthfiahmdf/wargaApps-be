@@ -3,22 +3,22 @@ const mongoose = require("mongoose");
 const getWarga = async (req, res) => {
   const wargaModel = mongoose.model("DataWarga");
   try {
-    const warga = await wargaModel.find().populate({
-      path: "noKK",
-      select: "noKK",
-    });
-
-    const transformedWarga = warga.map((item) => {
-      const { noKK, ...rest } = item.toObject();
-      return {
-        ...rest,
-        noKK: noKK?.noKK || null,
-      };
-    });
-
+    const { nik } = req.query;
+    let data;
+    if (nik) {
+      data = await wargaModel.findOne({ nik: nik });
+      if (!data) {
+        return res.status(404).json({
+          status: "fail",
+          message: "Warga not found",
+        });
+      }
+    } else {
+      data = await wargaModel.find();
+    }
     res.status(200).json({
       status: "success",
-      data: transformedWarga,
+      data: data,
     });
   } catch (error) {
     res.status(500).json({

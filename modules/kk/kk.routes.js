@@ -10,7 +10,7 @@ const kkRoutes = express.Router();
 
 kkRoutes.use(auth);
 kkRoutes.post("/create", createKK);
-kkRoutes.get("/get", getKK);
+kkRoutes.get("/", getKK);
 kkRoutes.delete("/delete", deleteKK);
 kkRoutes.patch("/update", updateKK);
 
