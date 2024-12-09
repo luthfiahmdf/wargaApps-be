@@ -14,6 +14,7 @@ const ErrorHandler = require("./handlers/errorHandler");
 const userRoutes = require("./modules/users/users.routes");
 const kkRoutes = require("./modules/kk/kk.routes");
 const wargaRoutes = require("./modules/warga/warga.routes");
+const dashboardRoutes = require("./modules/dashboard/dashboard.routes");
 const app = express();
 // Models
 require("./models/user.model");
@@ -25,6 +26,7 @@ app.use(ErrorHandler);
 app.use("/api/users", userRoutes);
 app.use("/api/kk", kkRoutes);
 app.use("/api/warga", wargaRoutes);
+app.use("/api/dashboard", dashboardRoutes);
 
 app.listen(8000, () => {
   console.log("Listening on port 8000");

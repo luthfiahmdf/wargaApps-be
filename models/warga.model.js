@@ -38,8 +38,7 @@ const DataWargaSchema = new mongoose.Schema({
     required: true,
   },
   noKK: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "KartuKeluarga", // Referensi ke model KartuKeluarga
+    type: Number,
     required: true,
   },
 });

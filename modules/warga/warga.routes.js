@@ -8,7 +8,7 @@ const wargaRoutes = expres.Router();
 // controllers
 wargaRoutes.use(auth);
 wargaRoutes.post("/create", createWarga);
-wargaRoutes.get("/get", getWarga);
+wargaRoutes.get("/", getWarga);
 wargaRoutes.delete("/delete", deleteWarga);
 wargaRoutes.patch("/update", updateWarga);
 module.exports = wargaRoutes;
