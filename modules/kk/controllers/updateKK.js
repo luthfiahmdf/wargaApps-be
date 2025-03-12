@@ -5,11 +5,10 @@ const updateKK = async (req, res) => {
   const DataWarga = mongoose.model("DataWarga");
 
   try {
-    const { noKK, kepalaKeluarga, rt, oldNoKK } = req.body; // Menggunakan oldNoKK untuk mengetahui noKK sebelumnya
+    const { noKK, kepalaKeluarga, rt, oldNoKK } = req.body;
 
-    // Update KartuKeluarga
     const updateKK = await KartuKeluarga.updateOne(
-      { noKK: oldNoKK }, // Cari data KartuKeluarga berdasarkan oldNoKK
+      { noKK: oldNoKK },
       { $set: { noKK: noKK, kepalaKeluarga: kepalaKeluarga, rt: rt } }
     );
 
@@ -20,11 +19,7 @@ const updateKK = async (req, res) => {
       });
     }
 
-    // Update noKK pada DataWarga yang menggunakan oldNoKK
-    await DataWarga.updateMany(
-      { noKK: oldNoKK }, // Cari DataWarga yang memiliki noKK lama
-      { $set: { noKK: noKK } } // Perbarui noKK menjadi noKK baru
-    );
+    await DataWarga.updateMany({ noKK: oldNoKK }, { $set: { noKK: noKK } });
 
     res.status(200).json({
       status: "success",
